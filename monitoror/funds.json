@@ -1,0 +1,62 @@
+{
+    "version": "2.0",
+    "columns": 4,
+    "tiles": [
+        {
+            "type": "HTTP-RAW",
+            "label": "工银前沿医疗股票C",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/010685.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        },
+        {
+            "type": "HTTP-RAW",
+            "label": "华夏上证科创板50成份ETF联接C",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/011613.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        },
+        {
+            "type": "HTTP-RAW",
+            "label": "国泰中证全指证券公司ETF联接C",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/012363.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        },
+        {
+            "type": "HTTP-RAW",
+            "label": "国泰中证环保产业50ETF联接C",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/012504.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        },
+        {
+            "type": "HTTP-RAW",
+            "label": "天弘中证计算机ETF联接C",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/001630.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        },
+        {
+            "type": "HTTP-RAW",
+            "label": "富国中证500指数增强(LOF)A",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/161017.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        },
+        {
+            "type": "HTTP-RAW",
+            "label": "招商中证白酒指数(LOF)A",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/161725.js",
+              "regex": "gszzl":"(.*?)","
+            }
+        }
+    ]
+  }

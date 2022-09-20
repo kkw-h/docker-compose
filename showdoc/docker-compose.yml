@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  showdoc:
+    image: star7th/showdoc
+    container_name: showdoc
+    volumes:
+      - ./showdoc_data/html:/var/www/html/
+    ports:
+      - 4999:80
+    privileged: true

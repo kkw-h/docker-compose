@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  halo:
+    image: halohub/halo:1.5
+    container_name: halo
+    restart: on-failure:3
+    volumes:
+      - ./:/root/.halo
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8090:8090"
+    environment:
+      - SERVER_PORT=8090
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/halodb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=halodb
+      - SPRING_DATASOURCE_PASSWORD=halodb
+      - HALO_ADMIN_PATH=kkw-admin
+      - HALO_CACHE=redis
+      - SPRING_REDIS_PORT=6379
+      - SPRING_REDIS_DATABASE=0
+      - SPRING_REDIS_HOST=host.docker.internal
+      - SPRING_REDIS_PASSWORD=

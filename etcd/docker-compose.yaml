@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+  etcd:
+    image: quay.io/coreos/etcd
+    ports:
+      - 2379:2379
+      - 2380:2380
+    container_name: etcd
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+    environment:
+      ETCDCTL_API: 3
+    command: /usr/local/bin/etcd --name etcd0 --data-dir /etcd-data --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379 --listen-peer-urls http://0.0.0.0:2380 --initial-advertise-peer-urls http://0.0.0.0:2380 --initial-cluster etcd0=http://0.0.0.0:2380 --initial-cluster-token tkn --initial-cluster-state new
+  etcd-browser:
+    image: buddho/etcd-browser
+    container_name: etcd-browser
+    ports:
+      - "8085:8000"
+    environment:
+      ETCD_HOST: etcd
+      ETCD_PORT: 2379

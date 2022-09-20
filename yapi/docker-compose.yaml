@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  yapi:
+    image: yapipro/yapi
+    container_name: yapi
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config.json:/yapi/config.json
+    restart: always
+    depends_on:
+      - mongo
+    links:
+      - mongo:yapi_mongo
+    command: server/app.js
+  mongo:
+    image: mongo
+    container_name: yapi_mongo
+    restart: always
+    ports:
+      - "27018:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=yapi
+      - MONGO_INITDB_ROOT_USERNAME=yapi
+      - MONGO_INITDB_ROOT_PASSWORD=yapi123456

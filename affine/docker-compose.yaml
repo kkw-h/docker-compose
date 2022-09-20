@@ -1,0 +1,8 @@
+version: '3.0'
+
+services:
+  affine:
+    image: playkkw/ghcr.io.toeverything.affine:nightly-latest
+    container_name: affine
+    ports:
+      - "4201:3000"

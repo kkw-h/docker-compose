@@ -1,0 +1,52 @@
+{
+    "version": "2.0",
+    "columns": 4,
+    "tiles": [
+        {
+            "type": "PORT",
+            "label": "API",
+            "params": {
+              "hostname": "192.168.1.100",
+              "port": 10000
+            }
+          },
+          {
+            "type": "PORT",
+            "label": "WS",
+            "params": {
+              "hostname": "192.168.1.100",
+              "port": 17778
+            }
+          },
+          {
+            "type": "PORT",
+            "label": "用户注册登录",
+            "params": {
+              "hostname": "192.168.1.100",
+              "port": 42233
+            }
+          },
+          {
+            "type": "HTTP-RAW",
+            "label": "华夏上证科创板50成份ETF联接C",
+            "params": {
+              "url": "https://fundgz.1234567.com.cn/js/011613.js",
+              "regex": "gszzl":"(.*?)","
+            }
+          },
+          {
+            "type": "HTTP-FORMATTED",
+            "params": {
+              "url": "http://host.docker.internal:8888/get",
+              "format": "JSON",
+              "key": "message"
+            }
+          },
+          {
+            "type": "PING",
+            "params": {
+              "hostname": "localhost"
+            }
+          }
+    ]
+  }

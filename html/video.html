@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<input class="layui-btn layui-btn-primary" type="button" accept="video/*" id="uploadVideo" onclick="changeFile(this)" />
+</body>
+</html>
+
+<script>
+     
+  function changeFile(ele){
+        let video = document.createElement('video');
+        video.preload = 'metadata';
+        video.src = "http://47.94.56.161:9000/ysy/IMG_1598.MP4";
+        video.onloadedmetadata = () => {
+            console.log(video.duration)
+        video = null;
+        };
+    }
+ 
+ function myFunction(ele) { // 获取文件时长
+        var timeArr = formatSeconds(ele.duration) // formatSeconds格式化时间
+        $("#minuteTime").val(timeArr[0])  
+        $("#secondTime").val(timeArr[1])
+    }
+ 
+  function formatSeconds(value) {
+        var secondTime = parseInt(value);// 秒
+        var minuteTime = 0;// 分
+        var hourTime = 0;// 小时
+        if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+            //获取分钟，除以60取整数，得到整数分钟
+            minuteTime = parseInt(secondTime / 60);
+            //获取秒数，秒数取佘，得到整数秒数
+            secondTime = parseInt(secondTime % 60);
+            //如果分钟大于60，将分钟转换成小时
+            if(minuteTime > 60) {
+                //获取小时，获取分钟除以60，得到整数小时
+                hourTime = parseInt(minuteTime / 60);
+                //获取小时后取佘的分，获取分钟除以60取佘的分
+                minuteTime = parseInt(minuteTime % 60);
+            }
+        }
+        if(minuteTime > 0) {
+            return [parseInt(minuteTime), parseInt(secondTime)];
+        }
+        if(hourTime > 0) {
+            return [parseInt(hourTime), parseInt(minuteTime), parseInt(secondTime)];
+        }
+        return [parseInt(secondTime)];
+    }
+</script>

@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  nps:
+    image: ffdfgdfg/nps
+    container_name: nps
+    volumes:
+      - ./conf:/conf

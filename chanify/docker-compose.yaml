@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  chanify:
+    image: wizjin/chanify
+    container_name: chanify
+    volumes:
+      - ./data:/root/.chanify
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - "10110:10110"
+      - "8082:80"
+    command: serve --endpoint=http://127.0.0.1:10110 --name=kkw --dburl=mysql://chanify:chanify@tcp(host.docker.internal:3306)/chanify?charset=utf8mb4&parseTime=true&loc=Local

@@ -1,0 +1,17 @@
+version: '3.0'
+
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:1.1.6
+    container_name: hbbs
+    network_mode: "host"
+    volumes:
+      - ./data/:/root
+    command: hbbs -r rustdesk.kkworld.top
+  hbbr:
+    image: rustdesk/rustdesk-server:1.1.6
+    container_name: hbbr
+    network_mode: "host"
+    volumes:
+      - ./data:/root
+    command: hbbr

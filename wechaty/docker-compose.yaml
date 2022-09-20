@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  wechaty:
+    image: wechaty/wechaty
+    container_name: wechaty
+    environment:
+      - WECHATY_PUPPET=wechaty-puppet-wechat
+      - WECHATY_TOKEN=8bd0bba1-ec95-469b-a49d-86a8ca15994f
+      - WECHATY_PUPPET_SERVER_PORT=18878
+      - WECHATY_LOG=verbose
+      - WECHATY_PUPPET_PADLOCAL_TOKEN=puppet_padlocal_8bd0bba1-ec95-469b-a49d-86a8ca15994f
+    ports:
+      - "18878:18878"

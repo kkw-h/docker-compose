@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+    - ./templates:/etc/nginx/templates
+    - ./conf.d:/etc/nginx/conf.d
+    - /Users/kkw/www/gz/xgz/ysy-admin-web/dist:/usr/share/ysy
+    ports:
+    - "18080:80"
+    - "18081:18081"

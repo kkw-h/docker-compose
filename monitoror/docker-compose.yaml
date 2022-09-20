@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  monitoror:
+    image: monitoror/monitoror
+    container_name: monitoror
+    ports:
+      - "8084:8080"
+    environment:
+      - MO_CONFIG=https://qn.kkworld.top/uPic/2022/04/28/funds.json
+    

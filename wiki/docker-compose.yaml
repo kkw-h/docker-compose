@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wiki:
+    container_name: wiki
+    image: requarks/wiki:2.5
+    environment:
+      DB_TYPE: mysql
+      DB_HOST: 101.43.211.243
+      DB_PORT: 3306
+      DB_USER: wikijs
+      DB_PASS: wikijsrocks
+      DB_NAME: wiki
+    ports:
+      - "8083:3000"
